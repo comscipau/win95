@@ -1,13 +1,31 @@
-body {
-  margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@font-face {
+  font-family: "W95FA";
+  src: url("./fonts/W95FA.otf");
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+.winBoxShadow {
+  background: #c0c0c0;
+  box-shadow: inset -1px -1px 0px #000000, inset 1px 1px 0px #ffffff,
+    inset -2px -2px 0px #7f7f7f, inset 2px 2px 0px #dfdfdf;
+}
+
+.timeBoxShadow {
+  background: #c0c0c0;
+  box-shadow: inset -1px -1px 0px #ffffff, inset 1px 1px 0px #808080;
+}
+
+.dialogBoxShadow {
+  background: #c0c0c0;
+  box-shadow: inset -1px -1px 0px #000000, inset 1px 1px 0px #c1c1c1,
+    inset -2px -2px 0px #818181, inset 2px 2px 0px #ffffff;
+}
+
+.btnBoxShadow {
+  background: #c0c0c0;
+  box-shadow: inset -1px -1px 0px #000000, inset 1px 1px 0px #ffffff,
+    inset -2px -2px 0px #818181;
 }
