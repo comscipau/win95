@@ -1,12 +1,13 @@
 import React, { useState } from "react";
 import Clock from "react-live-clock";
 
-import WIN1 from "../assets/win1.png";
+import WIN1 from "../assets/computer.png";
 import WIN2 from "../assets/win2.png";
 import WIN3 from "../assets/win3.png";
 import WIN4 from "../assets/win4.png";
 import WIN5 from "../assets/win5.png";
-import LOGO from "../assets/winLogo.png";
+import LOGO from "../assets/aPlusLogo.png";
+
 import Window from "./Window";
 
 const Home = () => {
@@ -50,7 +51,7 @@ const Home = () => {
           onClick={clickHandler}
         >
           <img src={WIN1} alt="WIN1" className="h-10 w-10" />
-          <p className="mt-1">My Computer</p>
+          <p className="mt-1">My A++</p>
         </div>
 
         <div
@@ -59,9 +60,9 @@ const Home = () => {
         >
           <img src={WIN2} alt="WIN2" className="h-10 w-10" />
           <p className="text-center mt-1">
-            Network
+            Connect
             <br />
-            Neighborhood
+            Wallet
           </p>
         </div>
 
