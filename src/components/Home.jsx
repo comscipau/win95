@@ -88,7 +88,6 @@ const Home = () => {
       <div className="absolute bottom-0 winBoxShadow h-10 w-full flex items-center justify-between">
         <button className="flex items-center winBoxShadow px-2 ml-1">
           <img src={LOGO} alt="LOGO" className="h-8" />
-          <p className="text-black font-bold ml-1">Start</p>
         </button>
         <div className="timeBoxShadow px-2 py-1 mr-1 flex items-center">
           <img src={WIN5} alt="win5" className="h-6 mr-4" />
