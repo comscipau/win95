@@ -66,7 +66,7 @@ const Home = () => {
           </p>
         </div>
 
-        <div
+        {/* <div
           className="flex flex-col items-center mt-8 hover:cursor-default"
           onClick={clickHandler}
         >
@@ -80,14 +80,14 @@ const Home = () => {
         >
           <img src={WIN4} alt="WIN4" className="h-10 w-10" />
           <p className="mt-1">Recycle Bin</p>
-        </div>
+        </div> */}
       </div>
 
       <Window visible={showWindow} onClose={closeWindow} />
 
       <div className="absolute bottom-0 winBoxShadow h-10 w-full flex items-center justify-between">
-        <button className="flex items-center winBoxShadow px-2 ml-1">
-          <img src={LOGO} alt="LOGO" className="h-8" />
+        <button className="flex items-center justify-center winBoxShadow px-2 ml-1 h-8 w-16">
+          <img src={LOGO} alt="LOGO" className="h-7 py-[2px]" />
         </button>
         <div className="timeBoxShadow px-2 py-1 mr-1 flex items-center">
           <img src={WIN5} alt="win5" className="h-6 mr-4" />
