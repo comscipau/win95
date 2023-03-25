@@ -3,17 +3,21 @@ import Clock from "react-live-clock";
 
 import WIN1 from "../assets/computer.png";
 import WIN2 from "../assets/win2.png";
-import WIN3 from "../assets/win3.png";
-import WIN4 from "../assets/win4.png";
 import WIN5 from "../assets/win5.png";
 import LOGO from "../assets/aPlusLogo.png";
 
 import Window from "./Window";
+import Menu from "./Menu";
 
 const Home = () => {
   const [showWindow, setShowWindow] = useState(false);
   const closeWindow = () => {
     setShowWindow(false);
+  };
+
+  const [showMenu, setShowMenu] = useState(false);
+  const closeMenu = () => {
+    setShowMenu(false);
   };
 
   let clicks = [];
@@ -70,7 +74,7 @@ const Home = () => {
           className="flex flex-col items-center mt-8 hover:cursor-default"
           onClick={clickHandler}
         >
-          <img src={WIN3} alt="WIN3" className="h-10 w-10" />
+          <img src={WIN1} alt="WIN1" className="h-10 w-10" />
           <p className="mt-1">Inbox</p>
         </div>
 
@@ -78,15 +82,19 @@ const Home = () => {
           className="flex flex-col items-center mt-8 hover:cursor-default"
           onClick={clickHandler}
         >
-          <img src={WIN4} alt="WIN4" className="h-10 w-10" />
+          <img src={WIN2} alt="WIN4" className="h-10 w-10" />
           <p className="mt-1">Recycle Bin</p>
         </div> */}
       </div>
 
       {showWindow && <Window visible={showWindow} onClose={closeWindow} />}
+      {showMenu && <Menu visible={showMenu} onClose={closeWindow} />}
 
       <div className="absolute bottom-0 winBoxShadow h-10 w-full flex items-center justify-between">
-        <button className="flex items-center justify-center btnBoxShadow px-2 ml-1 h-8 w-16">
+        <button
+          className="flex items-center justify-center btnBoxShadow px-2 ml-1 h-8 w-16"
+          onClick={() => setShowMenu(!showMenu)}
+        >
           <img src={LOGO} alt="LOGO" className="h-7 py-[2px]" />
         </button>
         <div className="timeBoxShadow px-2 py-1 mr-1 flex items-center">
