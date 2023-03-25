@@ -83,7 +83,7 @@ const Home = () => {
         </div> */}
       </div>
 
-      <Window visible={showWindow} onClose={closeWindow} />
+      {showWindow && <Window visible={showWindow} onClose={closeWindow} />}
 
       <div className="absolute bottom-0 winBoxShadow h-10 w-full flex items-center justify-between">
         <button className="flex items-center justify-center btnBoxShadow px-2 ml-1 h-8 w-16">
