@@ -47,7 +47,7 @@ const Home = () => {
     <div className="bg-[#008080] h-screen overflow-hidden m-0 text-white font-W95FA font-thin pt-4 relative">
       <div className="w-24 ml-4">
         <div
-          className="flex flex-col items-center hover:cursor-default"
+          className="flex flex-col items-center hover:cursor-pointer"
           onClick={clickHandler}
         >
           <img src={WIN1} alt="WIN1" className="h-10 w-10" />
@@ -55,7 +55,7 @@ const Home = () => {
         </div>
 
         <div
-          className="flex flex-col items-center mt-8 hover:cursor-default"
+          className="flex flex-col items-center mt-8 hover:cursor-pointer"
           onClick={clickHandler}
         >
           <img src={WIN2} alt="WIN2" className="h-10 w-10" />
@@ -86,7 +86,7 @@ const Home = () => {
       <Window visible={showWindow} onClose={closeWindow} />
 
       <div className="absolute bottom-0 winBoxShadow h-10 w-full flex items-center justify-between">
-        <button className="flex items-center justify-center winBoxShadow px-2 ml-1 h-8 w-16">
+        <button className="flex items-center justify-center btnBoxShadow px-2 ml-1 h-8 w-16">
           <img src={LOGO} alt="LOGO" className="h-7 py-[2px]" />
         </button>
         <div className="timeBoxShadow px-2 py-1 mr-1 flex items-center">

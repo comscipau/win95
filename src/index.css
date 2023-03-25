@@ -29,3 +29,16 @@
   box-shadow: inset -1px -1px 0px #000000, inset 1px 1px 0px #ffffff,
     inset -2px -2px 0px #818181;
 }
+
+.btnBoxShadow:active {
+  background: #c0c0c0;
+  box-shadow: inset -1px -1px 0px #ffffff, inset 1px 1px 0px #000000,
+    inset -2px -2px 0px #c4c4c4, inset 2px 2px 0px #808080;
+}
+
+.windowDiv {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
