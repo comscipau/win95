@@ -14,19 +14,39 @@ const Menu = ({ visible, onClose }) => {
           </p>
         </div>
         <div className="text-black font-thin">
-          <div className="flex items-center py-2 pl-2 pr-6 hover:bg-primary hover:text-white hover:cursor-pointer">
+          <div
+            className="flex items-center py-2 pl-2 pr-6 hover:bg-primary hover:text-white hover:cursor-pointer"
+            onClick={() => {
+              onClose("About Us");
+            }}
+          >
             <img src={INFO} alt="INFO" className="mr-2" />
             <p>About Us</p>
           </div>
-          <div className="flex items-center py-2 pl-2 pr-6 hover:bg-primary hover:text-white hover:cursor-pointer">
+          <div
+            className="flex items-center py-2 pl-2 pr-6 hover:bg-primary hover:text-white hover:cursor-pointer"
+            onClick={() => {
+              onClose("Team");
+            }}
+          >
             <img src={TEAM} alt="TEAM" className="pr-2" />
             <p>Team</p>
           </div>
-          <div className="flex items-center py-2 pl-2 pr-6 hover:bg-primary hover:text-white hover:cursor-pointer">
+          <div
+            className="flex items-center py-2 pl-2 pr-6 hover:bg-primary hover:text-white hover:cursor-pointer"
+            onClick={() => {
+              onClose("Whitepaper");
+            }}
+          >
             <img src={WHITEPAPER} alt="WHITEPAPER" className="pr-2" />
             <p>Whitepaper</p>
           </div>
-          <div className="flex items-center py-2 pl-2 pr-6 hover:bg-primary hover:text-white hover:cursor-pointer">
+          <div
+            className="flex items-center py-2 pl-2 pr-6 hover:bg-primary hover:text-white hover:cursor-pointer"
+            onClick={() => {
+              onClose("Disclaimer");
+            }}
+          >
             <img src={DISCLAIMER} alt="DISCLAIMER" className="pr-2" />
             <p>Disclaimer</p>
           </div>

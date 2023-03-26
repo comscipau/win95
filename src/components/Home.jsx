@@ -8,6 +8,7 @@ import LOGO from "../assets/aPlusLogo.png";
 
 import Window from "./Window";
 import Menu from "./Menu";
+import MenuWindow from "./MenuWindow";
 
 const Home = () => {
   const [showWindow, setShowWindow] = useState(false);
@@ -15,9 +16,18 @@ const Home = () => {
     setShowWindow(false);
   };
 
+  const [showMenuWindow, setShowMenuWindow] = useState(false);
+  const closeMenuWindow = () => {
+    setShowMenuWindow(false);
+  };
+
   const [showMenu, setShowMenu] = useState(false);
-  const closeMenu = () => {
+  const closeMenu = (e) => {
     setShowMenu(false);
+    console.log(e);
+    if (e === "About Us") {
+      setShowMenuWindow(true);
+    }
   };
 
   let clicks = [];
@@ -88,7 +98,10 @@ const Home = () => {
       </div>
 
       {showWindow && <Window visible={showWindow} onClose={closeWindow} />}
-      {showMenu && <Menu visible={showMenu} onClose={closeWindow} />}
+      {showMenuWindow && (
+        <MenuWindow visible={showMenuWindow} onClose={closeMenuWindow} />
+      )}
+      <Menu visible={showMenu} onClose={closeMenu} />
 
       <div className="absolute bottom-0 winBoxShadow h-10 w-full flex items-center justify-between">
         <button
