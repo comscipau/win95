@@ -54,3 +54,21 @@
   box-shadow: inset -1px -1px 0px #ffffff, inset 1px 1px 0px #000000,
     inset -2px -2px 0px #c4c4c4, inset 2px 2px 0px #808080;
 }
+
+.headerBarBoxShadow {
+  background: #c0c0c0;
+  box-shadow: inset -1px -1px 0px #000000, inset 1px 1px 0px #000000,
+    inset 2px 2px 0px #ffffff, inset -3px -3px 0px #7f7f7f,
+    inset 3px 3px 0px #dfdfdf;
+}
+
+.mailBoxShadow {
+  /* grey/grey */
+
+  /* background: #ffffff; */
+  /* Inside/2 */
+
+  box-shadow: inset -1px -1px 0px #ffffff, inset 1px -2px 0px #808080,
+    inset -2px 1px 0px #808080, inset 0px 2px 0px #ffffff,
+    inset 2px 2px 0px #ffffff;
+}

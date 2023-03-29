@@ -15,6 +15,8 @@ import MenuWindow from "./MenuWindow";
 import MyAPlusWindow from "./MyAPlusWindow";
 import PrintAPlusWIndow from "./PrintAPlusWindow";
 import RedeemAPlusWIndow from "./RedeemAPlusWIndow";
+import Inbox from "./Inbox";
+import Notepad from "./Notepad";
 
 const Home = () => {
   const [showWindow, setShowWindow] = useState(false);
@@ -40,6 +42,16 @@ const Home = () => {
   const [showRedeemAPlus, setShowRedeemAPlus] = useState(false);
   const closeRedeemAPlus = () => {
     setShowRedeemAPlus(false);
+  };
+
+  const [showMail, setShowMail] = useState(false);
+  const closeMail = () => {
+    setShowMail(false);
+  };
+
+  const [showNotepad, setShowNotedpad] = useState(false);
+  const closeNotepad = () => {
+    setShowNotedpad(false);
   };
 
   const [showMenu, setShowMenu] = useState(false);
@@ -69,6 +81,12 @@ const Home = () => {
         break;
       case "a++ printer":
         setShowPrintAPlus(true);
+        break;
+      case "my email":
+        setShowMail(true);
+        break;
+      case "welcome":
+        setShowNotedpad(true);
         break;
 
       default:
@@ -100,48 +118,48 @@ const Home = () => {
           className="flex flex-col items-center hover:cursor-pointer"
           onClick={(e) => clickHandler(e, "my a++")}
         >
-          <img src={WIN1} alt="WIN1" className="h-10 w-10" />
+          <img src={WIN1} alt="WIN1" className="w-10 h-10" />
           <p className="mt-1">My A++</p>
-        </div>
-
-        <div
-          className="flex flex-col items-center mt-7 hover:cursor-pointer"
-          onClick={(e) => clickHandler(e, "redeem a++")}
-        >
-          <img src={REDEEM} alt="REDEEM" className="h-10 w-10" />
-          <p className="text-center mt-1">Redeem A++</p>
         </div>
 
         <div
           className="flex flex-col items-center mt-7 hover:cursor-pointer"
           onClick={(e) => clickHandler(e, "a++ printer")}
         >
-          <img src={WIN5} alt="WIN5" className="h-10 w-10" />
-          <p className="text-center mt-1">A++ Printer</p>
+          <img src={WIN5} alt="WIN5" className="w-10 h-10" />
+          <p className="mt-1 text-center">A++ Printer</p>
         </div>
 
         <div
           className="flex flex-col items-center mt-7 hover:cursor-pointer"
-          onClick={(e) => clickHandler(e, "docs")}
+          onClick={(e) => clickHandler(e, "redeem a++")}
         >
-          <img src={DOCS} alt="DOCS" className="h-10 w-10" />
-          <p className="text-center mt-1">Docs</p>
-        </div>
-
-        <div
-          className="flex flex-col items-center mt-7 hover:cursor-pointer"
-          onClick={(e) => clickHandler(e, "welcome")}
-        >
-          <img src={NOTE} alt="NOTE" className="h-10 w-10" />
-          <p className="text-center mt-1">Welcome</p>
+          <img src={REDEEM} alt="REDEEM" className="w-10 h-10" />
+          <p className="mt-1 text-center">Redeem A++</p>
         </div>
 
         <div
           className="flex flex-col items-center mt-7 hover:cursor-pointer"
           onClick={(e) => clickHandler(e, "my email")}
         >
-          <img src={WIN3} alt="WIN3" className="h-10 w-10" />
-          <p className="text-center mt-1">My Email</p>
+          <img src={WIN3} alt="WIN3" className="w-10 h-10" />
+          <p className="mt-1 text-center">My Email</p>
+        </div>
+
+        <div
+          className="flex flex-col items-center mt-7 hover:cursor-pointer"
+          onClick={(e) => clickHandler(e, "docs")}
+        >
+          <img src={DOCS} alt="DOCS" className="w-10 h-10" />
+          <p className="mt-1 text-center">Docs</p>
+        </div>
+
+        <div
+          className="flex flex-col items-center mt-7 hover:cursor-pointer"
+          onClick={(e) => clickHandler(e, "welcome")}
+        >
+          <img src={NOTE} alt="NOTE" className="w-10 h-10" />
+          <p className="mt-1 text-center">Welcome</p>
         </div>
       </div>
 
@@ -158,19 +176,21 @@ const Home = () => {
           onClose={closeRedeemAPlus}
         />
       )}
+      {showMail && <Inbox visible={showMail} onClose={closeMail} />}
+      {showNotepad && <Notepad visible={showNotepad} onClose={closeNotepad} />}
       {showMenuWindow && (
         <MenuWindow visible={showMenuWindow} onClose={closeMenuWindow} />
       )}
       <Menu visible={showMenu} onClose={closeMenu} />
 
-      <div className="absolute bottom-0 winBoxShadow h-10 w-full flex items-center justify-between">
+      <div className="absolute bottom-0 flex items-center justify-between w-full h-10 winBoxShadow">
         <button
-          className="flex items-center justify-center btnBoxShadow px-2 ml-1 h-8 w-16"
+          className="flex items-center justify-center w-16 h-8 px-2 ml-1 btnBoxShadow"
           onClick={() => setShowMenu(!showMenu)}
         >
           <img src={LOGO} alt="LOGO" className="h-7 py-[2px]" />
         </button>
-        <div className="timeBoxShadow px-2 py-1 mr-1 flex items-center">
+        <div className="flex items-center px-2 py-1 mr-1 timeBoxShadow">
           <img src={WIN5} alt="win5" className="h-6 mr-4" />
           <Clock
             style={{ fontSize: "1rem", color: "black" }}

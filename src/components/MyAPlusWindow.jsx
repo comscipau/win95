@@ -8,17 +8,18 @@ const MyAPlusWindow = ({ visible, onClose }) => {
   return (
     <div
       className={`${
-        visible ? "fixed inset-0 flex justify-center items-center" : "hidden"
+        // visible ? "fixed inset-0 flex justify-center items-center" : "hidden"
+        visible ? "absolute left-[37%] right-[63%] top-[21%]" : "hidden"
       }`}
     >
       <Draggable handle="#myAplus">
         <div className="h-fit dialogBoxShadow w-[355px] px-1 py-1 text-black font-W95FA font-thin">
           <div
-            className="bg-primary flex items-center justify-between"
+            className="flex items-center justify-between bg-primary"
             id="myAplus"
           >
             <p className="text-white py-[1px] ml-1">My A++</p>
-            <div className="btnBoxShadow mr-1" onClick={onClose}>
+            <div className="mr-1 btnBoxShadow" onClick={onClose}>
               <img
                 src={CLOSE}
                 alt="CLOSE"
@@ -27,7 +28,7 @@ const MyAPlusWindow = ({ visible, onClose }) => {
             </div>
           </div>
           <div className="flex flex-col pt-[19px] px-[21px] pb-[60px] relative">
-            <div className="flex justify-end items-center">
+            <div className="flex items-center justify-end">
               <p>Network in use</p>
               <img
                 src={NET_LOGO}

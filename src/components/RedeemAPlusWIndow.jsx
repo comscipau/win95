@@ -8,17 +8,18 @@ const RedeemAPlusWIndow = ({ visible, onClose }) => {
   return (
     <div
       className={`${
-        visible ? "fixed inset-0 flex justify-center items-center" : "hidden"
+        // visible ? "fixed inset-0 flex justify-center items-center" : "hidden"
+        visible ? "absolute left-[38%] right-[62%] top-[25%]" : "hidden"
       }`}
     >
       <Draggable handle="#redeem">
-        <div className="h-fit dialogBoxShadow w-80 px-1 py-1 text-black font-W95FA font-thin">
+        <div className="px-1 py-1 font-thin text-black h-fit dialogBoxShadow w-80 font-W95FA">
           <div
-            className="bg-primary flex items-center justify-between"
+            className="flex items-center justify-between bg-primary"
             id="redeem"
           >
             <p className="text-white py-[1px] ml-1">Redeem A++</p>
-            <div className="btnBoxShadow mr-1" onClick={onClose}>
+            <div className="mr-1 btnBoxShadow" onClick={onClose}>
               <img
                 src={CLOSE}
                 alt="CLOSE"
@@ -43,9 +44,9 @@ const RedeemAPlusWIndow = ({ visible, onClose }) => {
               <input
                 type="text"
                 name="amount"
-                className="w-full redeemInput outline-none mt-1 mb-3"
+                className="w-full mt-1 mb-3 outline-none redeemInput"
               />
-              <div className="flex justify-between items-center mb-6">
+              <div className="flex items-center justify-between mb-6">
                 <div className="flex">
                   <img
                     src={NET_LOGO}
