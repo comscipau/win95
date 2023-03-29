@@ -2,13 +2,19 @@ import React, { useState } from "react";
 import Clock from "react-live-clock";
 
 import WIN1 from "../assets/computer.png";
-import WIN2 from "../assets/win2.png";
+import WIN3 from "../assets/win3.png";
 import WIN5 from "../assets/win5.png";
 import LOGO from "../assets/aPlusLogo.png";
+import REDEEM from "../assets/Holding.ico";
+import DOCS from "../assets/Docs.ico";
+import NOTE from "../assets/Notepad.ico";
 
 import Window from "./Window";
 import Menu from "./Menu";
 import MenuWindow from "./MenuWindow";
+import MyAPlusWindow from "./MyAPlusWindow";
+import PrintAPlusWIndow from "./PrintAPlusWindow";
+import RedeemAPlusWIndow from "./RedeemAPlusWIndow";
 
 const Home = () => {
   const [showWindow, setShowWindow] = useState(false);
@@ -19,6 +25,21 @@ const Home = () => {
   const [showMenuWindow, setShowMenuWindow] = useState(false);
   const closeMenuWindow = () => {
     setShowMenuWindow(false);
+  };
+
+  const [showMyAPlus, setShowMyAPlus] = useState(false);
+  const closeMyAPlus = () => {
+    setShowMyAPlus(false);
+  };
+
+  const [showPrintAPlus, setShowPrintAPlus] = useState(false);
+  const closePrintAPlus = () => {
+    setShowPrintAPlus(false);
+  };
+
+  const [showRedeemAPlus, setShowRedeemAPlus] = useState(false);
+  const closeRedeemAPlus = () => {
+    setShowRedeemAPlus(false);
   };
 
   const [showMenu, setShowMenu] = useState(false);
@@ -37,11 +58,25 @@ const Home = () => {
     // alert("single click");
   }
 
-  function doubleClick(event) {
-    setShowWindow(true);
+  function doubleClick(data) {
+    // setShowWindow(true);
+    switch (data) {
+      case "my a++":
+        setShowMyAPlus(true);
+        break;
+      case "redeem a++":
+        setShowRedeemAPlus(true);
+        break;
+      case "a++ printer":
+        setShowPrintAPlus(true);
+        break;
+
+      default:
+        break;
+    }
   }
 
-  function clickHandler(event) {
+  function clickHandler(event, data) {
     event.preventDefault();
     clicks.push(new Date().getTime());
     window.clearTimeout(timeout);
@@ -50,7 +85,8 @@ const Home = () => {
         clicks.length > 1 &&
         clicks[clicks.length - 1] - clicks[clicks.length - 2] < 500
       ) {
-        doubleClick(event.target);
+        doubleClick(data);
+        // console.log(data);
       } else {
         singleClick(event.target);
       }
@@ -62,42 +98,66 @@ const Home = () => {
       <div className="w-24 ml-4">
         <div
           className="flex flex-col items-center hover:cursor-pointer"
-          onClick={clickHandler}
+          onClick={(e) => clickHandler(e, "my a++")}
         >
           <img src={WIN1} alt="WIN1" className="h-10 w-10" />
           <p className="mt-1">My A++</p>
         </div>
 
         <div
-          className="flex flex-col items-center mt-8 hover:cursor-pointer"
-          onClick={clickHandler}
+          className="flex flex-col items-center mt-7 hover:cursor-pointer"
+          onClick={(e) => clickHandler(e, "redeem a++")}
         >
-          <img src={WIN2} alt="WIN2" className="h-10 w-10" />
-          <p className="text-center mt-1">
-            Connect
-            <br />
-            Wallet
-          </p>
-        </div>
-
-        {/* <div
-          className="flex flex-col items-center mt-8 hover:cursor-default"
-          onClick={clickHandler}
-        >
-          <img src={WIN1} alt="WIN1" className="h-10 w-10" />
-          <p className="mt-1">Inbox</p>
+          <img src={REDEEM} alt="REDEEM" className="h-10 w-10" />
+          <p className="text-center mt-1">Redeem A++</p>
         </div>
 
         <div
-          className="flex flex-col items-center mt-8 hover:cursor-default"
-          onClick={clickHandler}
+          className="flex flex-col items-center mt-7 hover:cursor-pointer"
+          onClick={(e) => clickHandler(e, "a++ printer")}
         >
-          <img src={WIN2} alt="WIN4" className="h-10 w-10" />
-          <p className="mt-1">Recycle Bin</p>
-        </div> */}
+          <img src={WIN5} alt="WIN5" className="h-10 w-10" />
+          <p className="text-center mt-1">A++ Printer</p>
+        </div>
+
+        <div
+          className="flex flex-col items-center mt-7 hover:cursor-pointer"
+          onClick={(e) => clickHandler(e, "docs")}
+        >
+          <img src={DOCS} alt="DOCS" className="h-10 w-10" />
+          <p className="text-center mt-1">Docs</p>
+        </div>
+
+        <div
+          className="flex flex-col items-center mt-7 hover:cursor-pointer"
+          onClick={(e) => clickHandler(e, "welcome")}
+        >
+          <img src={NOTE} alt="NOTE" className="h-10 w-10" />
+          <p className="text-center mt-1">Welcome</p>
+        </div>
+
+        <div
+          className="flex flex-col items-center mt-7 hover:cursor-pointer"
+          onClick={(e) => clickHandler(e, "my email")}
+        >
+          <img src={WIN3} alt="WIN3" className="h-10 w-10" />
+          <p className="text-center mt-1">My Email</p>
+        </div>
       </div>
 
       {showWindow && <Window visible={showWindow} onClose={closeWindow} />}
+      {showMyAPlus && (
+        <MyAPlusWindow visible={showMyAPlus} onClose={closeMyAPlus} />
+      )}
+      {showPrintAPlus && (
+        <PrintAPlusWIndow visible={showPrintAPlus} onClose={closePrintAPlus} />
+      )}
+      {showRedeemAPlus && (
+        <RedeemAPlusWIndow
+          visible={showRedeemAPlus}
+          onClose={closeRedeemAPlus}
+        />
+      )}
       {showMenuWindow && (
         <MenuWindow visible={showMenuWindow} onClose={closeMenuWindow} />
       )}
