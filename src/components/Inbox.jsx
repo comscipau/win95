@@ -39,10 +39,10 @@ const Inbox = ({ visible, onClose }) => {
       >
         <div className="px-1 py-1 font-thin text-black h-fit dialogBoxShadow font-W95FA text-sm lg:text-base">
           <div className="flex items-center justify-between bg-primary">
-            <div className="w-[93%] lg:w-[96.5%] bg-primary" id="inbox">
+            <div className="w-[92%] lg:w-[96.5%] bg-primary" id="inbox">
               <p className="text-white py-[1px] ml-1">Announcements</p>
             </div>
-            <div className="w-[7%] lg:w-[3.5%]">
+            <div className="w-[8%] lg:w-[3.5%]">
               <div className="mr-1 btnBoxShadow" onClick={onClose}>
                 <img
                   src={CLOSE}

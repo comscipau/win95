@@ -17,10 +17,10 @@ const RedeemAPlusWIndow = ({ visible, onClose }) => {
       >
         <div className="px-1 py-1 font-thin text-black h-fit dialogBoxShadow w-72 lg:w-80 font-W95FA text-sm lg:text-base">
           <div className="flex items-center justify-between bg-primary">
-            <div className="w-[93%] bg-primary" id="redeem">
+            <div className="w-[92%] bg-primary" id="redeem">
               <p className="text-white py-[1px] ml-1">Redeem A++</p>
             </div>
-            <div className="w-[7%]">
+            <div className="w-[8%]">
               <div className="mr-1 btnBoxShadow" onClick={onClose}>
                 <img
                   src={CLOSE}

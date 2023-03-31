@@ -18,10 +18,10 @@ const Notepad = ({ visible, onClose }) => {
       >
         <div className="w-72 lg:w-96 px-1 py-1 text-black dialogBoxShadow font-W95FA text-sm lg:text-base">
           <div className="flex items-center justify-between bg-primary">
-            <div className="w-[93%] bg-primary" id="note">
+            <div className="w-[92%] bg-primary" id="note">
               <p className="text-white py-[1px] ml-1">Welcome</p>
             </div>
-            <div className="w-[7%]">
+            <div className="w-[8%]">
               <div className="mr-1 btnBoxShadow" onClick={onClose}>
                 <img
                   src={CLOSE}
