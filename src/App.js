@@ -2,6 +2,8 @@ import React, { useState, useEffect } from "react";
 import Home from "./components/Home";
 import { motion } from "framer-motion";
 
+import LOGO from "../src/assets/aPlusLogo.png";
+
 function App() {
   const [showLoading, setShowLoading] = useState(true);
   const closeLoading = () => {
@@ -50,8 +52,10 @@ function App() {
           initial="visible"
           animate="hidden"
           viewport={{ once: true }}
-          className="fixed inset-0 bg-loadingScreen bg-cover z-[99]"
-        />
+          className="fixed inset-0 bg-loadingScreen bg-cover z-[99] flex justify-center items-center"
+        >
+          <img src={LOGO} alt="logo" className="lg:hidden block w-[80%]" />
+        </motion.div>
       )}
       {showHome && <Home />}
     </div>
