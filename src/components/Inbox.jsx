@@ -80,7 +80,7 @@ const Inbox = ({ visible, onClose }) => {
             className="mt-[2px] -mb-[2px]"
           /> */}
           <div className="flex flex-col lg:flex-row h-full text-sm">
-            <div className="w-[97%] h-40 overflow-y-scroll lg:w-56 p-1 m-1 redeemInput">
+            <div className="w-[97%] h-40 lg:h-[260px] overflow-y-scroll lg:w-56 p-1 m-1 redeemInput">
               <div className="flex">
                 <img src={myMail} alt="myMail" className="w-5 h-5 mb-1 mr-2" />
                 <p>A++ Exchange</p>
