@@ -1,16 +1,37 @@
 import React from "react";
 import Draggable from "react-draggable";
+import { BsExclamationLg, BsPaperclip } from "react-icons/bs";
+import { GoMail } from "react-icons/go";
+
 import CLOSE from "../assets/Close.svg";
 import myMail from "../assets/win3.png";
 import FOLDER from "../assets/Folder.ico";
 import OPEN_OLDER from "../assets/Opened_Folder.ico";
+// import MAILTOOLBAR from "../assets/inboxTool.png";
 
 const Inbox = ({ visible, onClose }) => {
+  const emailDiv = (
+    <div className="flex">
+      <div className="w-[11px] h-5" />
+      <div className="w-[14px] h-5" />
+      <div className="w-5 h-5 flex justify-center items-center">
+        <GoMail />
+      </div>
+      <div className="w-[15px] h-5" />
+      <div className="w-[163px] h-5">
+        <p className="ml-2 font-bold">A++</p>
+      </div>
+      <div className="w-40 h-5">
+        <p className="ml-2 font-bold">Welcome!</p>
+      </div>
+    </div>
+  );
+
   return (
     <div
       className={`${
         // visible ? "fixed inset-0 flex justify-center items-center" : "hidden"
-        visible ? "absolute left-[27%] top-[31%]" : "hidden"
+        visible ? "absolute left-[27%] top-[21%]" : "hidden"
       }`}
     >
       <Draggable handle="#inbox">
@@ -19,7 +40,7 @@ const Inbox = ({ visible, onClose }) => {
             className="flex items-center justify-between bg-primary"
             id="inbox"
           >
-            <p className="text-white py-[1px] ml-1">Inbox</p>
+            <p className="text-white py-[1px] ml-1">Announcements</p>
             <div className="mr-1 btnBoxShadow" onClick={onClose}>
               <img
                 src={CLOSE}
@@ -28,7 +49,7 @@ const Inbox = ({ visible, onClose }) => {
               />
             </div>
           </div>
-          <div className="flex gap-3 ml-2 text-sm">
+          <div className="flex gap-3 ml-2 text-sm disabledText">
             <p>
               <span className="underline">F</span>ile
             </p>
@@ -49,6 +70,12 @@ const Inbox = ({ visible, onClose }) => {
               <span className="underline">H</span>elp
             </p>
           </div>
+          {/* <div className="bg-dividerHr w-full h-[2px]" />
+          <img
+            src={MAILTOOLBAR}
+            alt="MAILTOOLBAR"
+            className="mt-[2px] -mb-[2px]"
+          /> */}
           <div className="flex h-full text-sm">
             <div className="w-56 p-1 m-1 redeemInput">
               <div className="flex">
@@ -69,7 +96,7 @@ const Inbox = ({ visible, onClose }) => {
                   alt="FOLDER"
                   className="w-5 h-5 mb-1 mr-2 ml-14"
                 />
-                <p>Deleted Items</p>
+                <p>Title 1</p>
               </div>
               <div className="flex">
                 <img
@@ -77,7 +104,7 @@ const Inbox = ({ visible, onClose }) => {
                   alt="OPEN_OLDER"
                   className="w-5 h-5 mb-1 mr-2 ml-14"
                 />
-                <p className="font-bold">Inbox</p>
+                <p>Title 2</p>
               </div>
               <div className="flex">
                 <img
@@ -85,7 +112,7 @@ const Inbox = ({ visible, onClose }) => {
                   alt="FOLDER"
                   className="w-5 h-5 mb-1 mr-2 ml-14"
                 />
-                <p>Outbox</p>
+                <p>Title 3</p>
               </div>
               <div className="flex">
                 <img
@@ -93,22 +120,54 @@ const Inbox = ({ visible, onClose }) => {
                   alt="FOLDER"
                   className="w-5 h-5 mb-1 mr-2 ml-14"
                 />
-                <p>Sent Items</p>
+                <p>Title 4</p>
               </div>
             </div>
-            <div className="mt-1 mb-1 mr-1 bg-white mailBoxShadow">
+            <div className="mt-1 mb-1 mr-1 w-96 bg-white mailBoxShadow">
               <div className="flex">
                 <div className="w-3 h-5 headerBarBoxShadow" />
-                <div className="w-3 h-5 headerBarBoxShadow" />
-                <div className="w-5 h-5 headerBarBoxShadow" />
-                <div className="w-4 h-5 headerBarBoxShadow" />
-                <div className="w-40 h-5 headerBarBoxShadow" />
-                <div className="w-40 h-5 headerBarBoxShadow" />
+                <div className="w-3 h-5 headerBarBoxShadow flex justify-center items-center">
+                  <BsExclamationLg />
+                </div>
+                <div className="w-5 h-5 headerBarBoxShadow flex justify-center items-center">
+                  <GoMail />
+                </div>
+                <div className="w-4 h-5 headerBarBoxShadow flex justify-center items-center">
+                  <BsPaperclip size={13} />
+                </div>
+                <div className="w-40 h-5 headerBarBoxShadow">
+                  <p className="ml-2">From</p>
+                </div>
+                <div className="w-44 h-5 headerBarBoxShadow">
+                  <p className="ml-2">Subject</p>
+                </div>
+              </div>
+              <div className="h-60 bg-white overflow-y-scroll">
+                {emailDiv}
+                {emailDiv}
+                {emailDiv}
+                {emailDiv}
+                {emailDiv}
+                {emailDiv}
+                {emailDiv}
+                {emailDiv}
+                {emailDiv}
+                {emailDiv}
+                {emailDiv}
+                {emailDiv}
+                {emailDiv}
+                {emailDiv}
+                {emailDiv}
+                {emailDiv}
+                {emailDiv}
+                {emailDiv}
+                {emailDiv}
+                {emailDiv}
               </div>
             </div>
           </div>
           <div className="px-1 mx-1 mailBoxShadow">
-            <p className="text-sm">0 Item, 0 Unread</p>
+            <p className="text-sm">20 Items, 0 Unread</p>
           </div>
         </div>
       </Draggable>

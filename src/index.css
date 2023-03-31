@@ -63,12 +63,12 @@
 }
 
 .mailBoxShadow {
-  /* grey/grey */
-
-  /* background: #ffffff; */
-  /* Inside/2 */
-
   box-shadow: inset -1px -1px 0px #ffffff, inset 1px -2px 0px #808080,
     inset -2px 1px 0px #808080, inset 0px 2px 0px #ffffff,
     inset 2px 2px 0px #ffffff;
+}
+
+.disabledText {
+  color: #808080;
+  text-shadow: 0.87px 0.88px 0px #ffffff;
 }

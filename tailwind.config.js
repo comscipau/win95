@@ -11,6 +11,7 @@ module.exports = {
       },
       backgroundImage: {
         divider: "url('/src/assets/Divider.png')",
+        dividerHr: "url('/src/assets/DividerHr.png')",
       },
     },
   },
