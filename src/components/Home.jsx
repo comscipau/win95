@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import Clock from "react-live-clock";
+
 import WIN1 from "../assets/computer.png";
 import WIN3 from "../assets/win3.png";
 import WIN5 from "../assets/win5.png";
