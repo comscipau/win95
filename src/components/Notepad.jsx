@@ -7,13 +7,13 @@ const Notepad = ({ visible, onClose }) => {
     "Lorem ipsum dolor sit amet consectetur adipisicing elit. Facere tempore blanditiis voluptatum obcaecati incidunt similique nemo est, dolorem amet, exercitationem corporis quaerat deleniti at odit labore numquam sapiente harum placeat! Lorem ipsum dolor sit amet consectetur adipisicing elit. Facere tempore blanditiis voluptatum obcaecati incidunt similique nemo est, dolorem amet, exercitationem corporis quaerat deleniti at odit labore numquam sapiente harum placeat! Lorem ipsum dolor sit amet consectetur adipisicing elit. Facere tempore blanditiis voluptatum obcaecati incidunt similique nemo est, dolorem amet, exercitationem corporis quaerat deleniti at odit labore numquam sapiente harum placeat! Lorem ipsum dolor sit amet consectetur adipisicing elit. Facere tempore blanditiis voluptatum obcaecati incidunt similique nemo est, dolorem amet, exercitationem corporis quaerat deleniti at odit labore numquam sapiente harum placeat!";
 
   return (
-    <div
-      className={`${
-        // visible ? "fixed inset-0 flex justify-center items-center" : "hidden"
-        visible ? "absolute left-[36%] top-[3%]" : "hidden"
-      }`}
-    >
-      <Draggable handle="#note">
+    <Draggable handle="#note">
+      <div
+        className={`${
+          // visible ? "fixed inset-0 flex justify-center items-center" : "hidden"
+          visible ? "absolute left-[36%] top-[3%] z-10" : "hidden"
+        }`}
+      >
         <div className="w-96 px-1 py-1 text-black dialogBoxShadow font-W95FA">
           <div
             className="flex items-center justify-between bg-primary"
@@ -53,8 +53,8 @@ const Notepad = ({ visible, onClose }) => {
             ></textarea>
           </div>
         </div>
-      </Draggable>
-    </div>
+      </div>
+    </Draggable>
   );
 };
 

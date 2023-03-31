@@ -6,13 +6,13 @@ import NET_LOGO from "../assets/arblogo.png";
 
 const PrintAPlusWIndow = ({ visible, onClose }) => {
   return (
-    <div
-      className={`${
-        // visible ? "fixed inset-0 flex justify-center items-center" : "hidden"
-        visible ? "absolute left-[38%] right-[62%] top-[25%]" : "hidden"
-      }`}
-    >
-      <Draggable handle="#redeem">
+    <Draggable handle="#redeem">
+      <div
+        className={`${
+          // visible ? "fixed inset-0 flex justify-center items-center" : "hidden"
+          visible ? "absolute left-[38%] right-[62%] top-[25%] z-10" : "hidden"
+        }`}
+      >
         <div className="px-1 py-1 font-thin text-black h-fit dialogBoxShadow w-80 font-W95FA">
           <div
             className="flex items-center justify-between bg-primary"
@@ -64,8 +64,8 @@ const PrintAPlusWIndow = ({ visible, onClose }) => {
             </form>
           </div>
         </div>
-      </Draggable>
-    </div>
+      </div>
+    </Draggable>
   );
 };
 

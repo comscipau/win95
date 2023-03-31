@@ -28,13 +28,13 @@ const Inbox = ({ visible, onClose }) => {
   );
 
   return (
-    <div
-      className={`${
-        // visible ? "fixed inset-0 flex justify-center items-center" : "hidden"
-        visible ? "absolute left-[27%] top-[21%]" : "hidden"
-      }`}
-    >
-      <Draggable handle="#inbox">
+    <Draggable handle="#inbox">
+      <div
+        className={`${
+          // visible ? "fixed inset-0 flex justify-center items-center" : "hidden"
+          visible ? "absolute left-[27%] top-[21%] z-10" : "hidden"
+        }`}
+      >
         <div className="px-1 py-1 font-thin text-black h-fit dialogBoxShadow font-W95FA">
           <div
             className="flex items-center justify-between bg-primary"
@@ -170,8 +170,8 @@ const Inbox = ({ visible, onClose }) => {
             <p className="text-sm">20 Items, 0 Unread</p>
           </div>
         </div>
-      </Draggable>
-    </div>
+      </div>
+    </Draggable>
   );
 };
 

@@ -6,13 +6,15 @@ import NET_LOGO from "../assets/arblogo.png";
 
 const MyAPlusWindow = ({ visible, onClose }) => {
   return (
-    <div
-      className={`${
-        // visible ? "fixed inset-0 flex justify-center items-center" : "hidden"
-        visible ? "absolute left-[37%] right-[63%] top-[21%]" : "hidden"
-      }`}
-    >
-      <Draggable handle="#myAplus">
+    <Draggable handle="#myAplus">
+      <div
+        className={`${
+          // visible ? "fixed inset-0 flex justify-center items-center" : "hidden"
+          visible.show
+            ? "absolute left-[37%] right-[63%] top-[21%] z-10"
+            : "hidden"
+        }`}
+      >
         <div className="h-fit dialogBoxShadow w-[355px] px-1 py-1 text-black font-W95FA font-thin">
           <div
             className="flex items-center justify-between bg-primary"
@@ -61,8 +63,8 @@ const MyAPlusWindow = ({ visible, onClose }) => {
             <div className="bg-divider w-[2px] h-[182px] absolute left-1/2 top-[68px]" />
           </div>
         </div>
-      </Draggable>
-    </div>
+      </div>
+    </Draggable>
   );
 };
 

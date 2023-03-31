@@ -1,6 +1,5 @@
 import React, { useState } from "react";
 import Clock from "react-live-clock";
-
 import WIN1 from "../assets/computer.png";
 import WIN3 from "../assets/win3.png";
 import WIN5 from "../assets/win5.png";
@@ -29,9 +28,10 @@ const Home = () => {
     setShowMenuWindow(false);
   };
 
-  const [showMyAPlus, setShowMyAPlus] = useState(false);
+  const [showMyAPlus, setShowMyAPlus] = useState({ show: false, zIndex: 10 });
   const closeMyAPlus = () => {
-    setShowMyAPlus(false);
+    console.log("close");
+    setShowMyAPlus({ ...showMyAPlus, show: false });
   };
 
   const [showPrintAPlus, setShowPrintAPlus] = useState(false);
@@ -74,7 +74,7 @@ const Home = () => {
     // setShowWindow(true);
     switch (data) {
       case "my a++":
-        setShowMyAPlus(true);
+        setShowMyAPlus({ ...showMyAPlus, show: true });
         break;
       case "redeem a++":
         setShowRedeemAPlus(true);
@@ -164,7 +164,7 @@ const Home = () => {
       </div>
 
       {showWindow && <Window visible={showWindow} onClose={closeWindow} />}
-      {showMyAPlus && (
+      {showMyAPlus.show && (
         <MyAPlusWindow visible={showMyAPlus} onClose={closeMyAPlus} />
       )}
       {showPrintAPlus && (
@@ -183,7 +183,7 @@ const Home = () => {
       )}
       <Menu visible={showMenu} onClose={closeMenu} />
 
-      <div className="absolute bottom-0 flex items-center justify-between w-full h-10 winBoxShadow">
+      <div className="absolute bottom-0 flex items-center justify-between w-full h-10 winBoxShadow z-50">
         <button
           className="flex items-center justify-center w-16 h-8 px-2 ml-1 btnBoxShadow"
           onClick={() => setShowMenu(!showMenu)}
