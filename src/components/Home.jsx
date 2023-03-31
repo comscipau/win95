@@ -114,7 +114,7 @@ const Home = () => {
 
   return (
     <div className="bg-[#008080] h-screen overflow-hidden m-0 text-white font-W95FA font-thin pt-4 relative">
-      <div className="w-24 ml-4">
+      <div className="w-24 ml-2 lg:ml-4">
         <div
           className="flex flex-col items-center hover:cursor-pointer"
           onClick={(e) => clickHandler(e, "my a++")}
