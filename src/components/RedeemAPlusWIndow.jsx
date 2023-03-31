@@ -10,21 +10,24 @@ const RedeemAPlusWIndow = ({ visible, onClose }) => {
       <div
         className={`${
           // visible ? "fixed inset-0 flex justify-center items-center" : "hidden"
-          visible ? "absolute left-[38%] right-[62%] top-[25%] z-10" : "hidden"
+          visible
+            ? "absolute left-[10%] lg:left-[38%] lg:right-[62%] top-[25%] z-10"
+            : "hidden"
         }`}
       >
-        <div className="px-1 py-1 font-thin text-black h-fit dialogBoxShadow w-80 font-W95FA">
-          <div
-            className="flex items-center justify-between bg-primary"
-            id="redeem"
-          >
-            <p className="text-white py-[1px] ml-1">Redeem A++</p>
-            <div className="mr-1 btnBoxShadow" onClick={onClose}>
-              <img
-                src={CLOSE}
-                alt="CLOSE"
-                className="w-[18px] h-[18px] pr-[2px]"
-              />
+        <div className="px-1 py-1 font-thin text-black h-fit dialogBoxShadow w-72 lg:w-80 font-W95FA text-sm lg:text-base">
+          <div className="flex items-center justify-between bg-primary">
+            <div className="w-[93%] bg-primary" id="redeem">
+              <p className="text-white py-[1px] ml-1">Redeem A++</p>
+            </div>
+            <div className="w-[7%]">
+              <div className="mr-1 btnBoxShadow" onClick={onClose}>
+                <img
+                  src={CLOSE}
+                  alt="CLOSE"
+                  className="w-[18px] h-[18px] pr-[2px] mx-auto"
+                />
+              </div>
             </div>
           </div>
           <div className="pt-[52px] px-[28px] pb-[27px] relative">
