@@ -2,8 +2,6 @@ import React, { useState, useEffect } from "react";
 import Home from "./components/Home";
 import { motion } from "framer-motion";
 
-import LOGO from "../src/assets/aPlusLogo.png";
-
 function App() {
   const [showLoading, setShowLoading] = useState(true);
   const closeLoading = () => {
@@ -18,11 +16,11 @@ function App() {
   useEffect(() => {
     const timer = setTimeout(() => {
       closeLoading();
-    }, 3000);
+    }, 5000);
 
     const timer2 = setTimeout(() => {
       openHome();
-    }, 1500);
+    }, 3500);
 
     return () => {
       clearTimeout(timer);
@@ -37,7 +35,7 @@ function App() {
     hidden: {
       opacity: 0,
       transition: {
-        delay: 2,
+        delay: 4,
         duration: 0.5,
         ease: "easeInOut",
       },
@@ -52,10 +50,8 @@ function App() {
           initial="visible"
           animate="hidden"
           viewport={{ once: true }}
-          className="fixed inset-0 bg-loadingScreen bg-cover z-[99] flex justify-center items-center"
-        >
-          <img src={LOGO} alt="logo" className="lg:hidden block w-[80%]" />
-        </motion.div>
+          className="fixed inset-0 lg:bg-loadingScreen bg-loadingScreenSM bg-stretch z-[99]"
+        />
       )}
       {showHome && <Home />}
     </div>
