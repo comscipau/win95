@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import Draggable from "react-draggable";
 import { BsExclamationLg, BsPaperclip } from "react-icons/bs";
 import { GoMail } from "react-icons/go";
@@ -6,26 +6,70 @@ import { GoMail } from "react-icons/go";
 import CLOSE from "../assets/Close.svg";
 import myMail from "../assets/win3.png";
 import FOLDER from "../assets/Folder.ico";
-import OPEN_OLDER from "../assets/Opened_Folder.ico";
+import OPEN_FOLDER from "../assets/Opened_Folder.ico";
 // import MAILTOOLBAR from "../assets/inboxTool.png";
 
 const Inbox = ({ visible, onClose }) => {
-  const emailDiv = (
-    <div className="flex">
-      <div className="w-[11px] h-5" />
-      <div className="w-[14px] h-5" />
-      <div className="w-5 h-5 flex justify-center items-center">
-        <GoMail />
+  const EmailDiv = ({ isActive, onClick, from, subject }) => {
+    return (
+      <div
+        className={
+          isActive
+            ? "flex bg-primary text-white hover:cursor-pointer"
+            : "flex hover:cursor-pointer"
+        }
+        onClick={onClick}
+      >
+        <div className="w-[11px] h-5" />
+        <div className="w-[14px] h-5" />
+        <div className="w-5 h-5 flex justify-center items-center">
+          <GoMail />
+        </div>
+        <div className="w-[15px] h-5" />
+        <div className="w-[148px] lg:w-[163px] h-5">
+          <p className="ml-2 font-bold">{from}</p>
+        </div>
+        <div className="w-40 h-5">
+          <p className="ml-2 font-bold">{subject}</p>
+        </div>
       </div>
-      <div className="w-[15px] h-5" />
-      <div className="w-[163px] h-5">
-        <p className="ml-2 font-bold">A++</p>
+    );
+  };
+
+  const SubFolder = ({ isActive, onClick, title }) => {
+    return (
+      <div className={isActive ? "flex bg-primary text-white" : "flex"}>
+        <div
+          className="hover:cursor-pointer flex items-center w-fit ml-14"
+          onClick={onClick}
+        >
+          <img
+            src={FOLDER}
+            alt="FOLDER"
+            className={isActive ? "hidden" : "flex w-5 h-5 my-[2px] mr-2"}
+          />
+          <img
+            src={OPEN_FOLDER}
+            alt="OPEN_FOLDER"
+            className={isActive ? "flex w-5 h-5 my-[2px] mr-2" : "hidden"}
+          />
+          <p>{title}</p>
+        </div>
       </div>
-      <div className="w-40 h-5">
-        <p className="ml-2 font-bold">Welcome!</p>
-      </div>
-    </div>
-  );
+    );
+  };
+
+  const [showFolder_group1, setShowFolder_group1] = useState(true);
+
+  const [activeElement, setActiveElement] = useState(-1);
+  const updateActiveElement = (id) => {
+    setActiveElement(activeElement !== id ? id : -1);
+  };
+
+  const [activeEmail, setActiveEmail] = useState(-1);
+  const updateActiveEmail = (id) => {
+    setActiveEmail(activeEmail !== id ? id : -1);
+  };
 
   return (
     <Draggable handle="#inbox">
@@ -85,56 +129,53 @@ const Inbox = ({ visible, onClose }) => {
                 <img src={myMail} alt="myMail" className="w-5 h-5 mb-1 mr-2" />
                 <p>A++ Exchange</p>
               </div>
-              <div className="flex">
-                <img
-                  src={FOLDER}
-                  alt="FOLDER"
-                  className="w-5 h-5 mb-1 mr-2 ml-7"
-                />
-                <p>Personal Folders</p>
-              </div>
-              <div className="flex">
-                <img
-                  src={FOLDER}
-                  alt="FOLDER"
-                  className="w-5 h-5 mb-1 mr-2 ml-14"
-                />
-                <p>Title 1</p>
-              </div>
-              <div className="flex">
-                <img
-                  src={OPEN_OLDER}
-                  alt="OPEN_OLDER"
-                  className="w-5 h-5 mb-1 mr-2 ml-14"
-                />
-                <p>Title 2</p>
-              </div>
-              <div className="flex">
-                <img
-                  src={FOLDER}
-                  alt="FOLDER"
-                  className="w-5 h-5 mb-1 mr-2 ml-14"
-                />
-                <p>Title 3</p>
-              </div>
-              <div className="flex">
-                <img
-                  src={FOLDER}
-                  alt="FOLDER"
-                  className="w-5 h-5 mb-1 mr-2 ml-14"
-                />
-                <p>Title 4</p>
-              </div>
-              <div className="flex">
-                <img
-                  src={FOLDER}
-                  alt="FOLDER"
-                  className="w-5 h-5 mb-1 mr-2 ml-14"
-                />
-                <p>Title 5</p>
+              <div id="folder_group1">
+                <div className="flex items-center">
+                  <div
+                    className="hover:cursor-pointer flex items-center w-fit ml-7"
+                    onClick={() => setShowFolder_group1(!showFolder_group1)}
+                  >
+                    <img
+                      src={FOLDER}
+                      alt="FOLDER"
+                      className="w-5 h-5 my-[2px] mr-2"
+                    />
+                    <p>Personal Folders</p>
+                  </div>
+                </div>
+                <div
+                  id="subfolder_group1"
+                  className={showFolder_group1 ? "block" : "hidden"}
+                >
+                  <SubFolder
+                    isActive={1 === activeElement}
+                    onClick={() => updateActiveElement(1)}
+                    title={"Title 1"}
+                  />
+                  <SubFolder
+                    isActive={2 === activeElement}
+                    onClick={() => updateActiveElement(2)}
+                    title={"Title 2"}
+                  />
+                  <SubFolder
+                    isActive={3 === activeElement}
+                    onClick={() => updateActiveElement(3)}
+                    title={"Title 3"}
+                  />
+                  <SubFolder
+                    isActive={4 === activeElement}
+                    onClick={() => updateActiveElement(4)}
+                    title={"Title 4"}
+                  />
+                  <SubFolder
+                    isActive={5 === activeElement}
+                    onClick={() => updateActiveElement(5)}
+                    title={"Title 5"}
+                  />
+                </div>
               </div>
             </div>
-            <div className="mt-1 mb-1 mr-1 ml-1 lg:ml-0 w-72 lg:w-96 bg-white mailBoxShadow">
+            <div className="mt-1 mb-1 mr-[5px] lg:mr-1 ml-1 lg:ml-0 w-72 lg:w-96 bg-white mailBoxShadow">
               <div className="flex">
                 <div className="w-3 h-5 headerBarBoxShadow" />
                 <div className="w-3 h-5 headerBarBoxShadow flex justify-center items-center">
@@ -154,31 +195,41 @@ const Inbox = ({ visible, onClose }) => {
                 </div>
               </div>
               <div className="h-60 bg-white overflow-y-scroll">
-                {emailDiv}
-                {emailDiv}
-                {emailDiv}
-                {emailDiv}
-                {emailDiv}
-                {emailDiv}
-                {emailDiv}
-                {emailDiv}
-                {emailDiv}
-                {emailDiv}
-                {emailDiv}
-                {emailDiv}
-                {emailDiv}
-                {emailDiv}
-                {emailDiv}
-                {emailDiv}
-                {emailDiv}
-                {emailDiv}
-                {emailDiv}
-                {emailDiv}
+                <EmailDiv
+                  from={"A++"}
+                  subject={"Welcome!"}
+                  isActive={1 === activeEmail}
+                  onClick={() => updateActiveEmail(1)}
+                />
+                <EmailDiv
+                  from={"A++"}
+                  subject={"Welcome!"}
+                  isActive={2 === activeEmail}
+                  onClick={() => updateActiveEmail(2)}
+                />
+                <EmailDiv
+                  from={"A++"}
+                  subject={"Welcome!"}
+                  isActive={3 === activeEmail}
+                  onClick={() => updateActiveEmail(3)}
+                />
+                <EmailDiv
+                  from={"A++"}
+                  subject={"Welcome!"}
+                  isActive={4 === activeEmail}
+                  onClick={() => updateActiveEmail(4)}
+                />
+                <EmailDiv
+                  from={"A++"}
+                  subject={"Welcome!"}
+                  isActive={5 === activeEmail}
+                  onClick={() => updateActiveEmail(5)}
+                />
               </div>
             </div>
           </div>
           <div className="px-1 mx-1 mailBoxShadow">
-            <p className="text-sm">20 Items, 0 Unread</p>
+            <p className="text-sm">5 Items, 0 Unread</p>
           </div>
         </div>
       </div>
