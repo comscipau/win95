@@ -62,11 +62,13 @@ const Inbox = ({ visible, onClose }) => {
   const [showFolder_group1, setShowFolder_group1] = useState(true);
 
   const [activeElement, setActiveElement] = useState(-1);
+  const [activeEmail, setActiveEmail] = useState(-1);
+
   const updateActiveElement = (id) => {
     setActiveElement(activeElement !== id ? id : -1);
+    setActiveEmail(-1);
   };
 
-  const [activeEmail, setActiveEmail] = useState(-1);
   const updateActiveEmail = (id) => {
     setActiveEmail(activeEmail !== id ? id : -1);
   };
@@ -195,41 +197,59 @@ const Inbox = ({ visible, onClose }) => {
                 </div>
               </div>
               <div className="h-60 bg-white overflow-y-scroll">
-                <EmailDiv
-                  from={"A++"}
-                  subject={"Welcome!"}
-                  isActive={1 === activeEmail}
-                  onClick={() => updateActiveEmail(1)}
-                />
-                <EmailDiv
-                  from={"A++"}
-                  subject={"Welcome!"}
-                  isActive={2 === activeEmail}
-                  onClick={() => updateActiveEmail(2)}
-                />
-                <EmailDiv
-                  from={"A++"}
-                  subject={"Welcome!"}
-                  isActive={3 === activeEmail}
-                  onClick={() => updateActiveEmail(3)}
-                />
-                <EmailDiv
-                  from={"A++"}
-                  subject={"Welcome!"}
-                  isActive={4 === activeEmail}
-                  onClick={() => updateActiveEmail(4)}
-                />
-                <EmailDiv
-                  from={"A++"}
-                  subject={"Welcome!"}
-                  isActive={5 === activeEmail}
-                  onClick={() => updateActiveEmail(5)}
-                />
+                {activeElement === 1 && (
+                  <div>
+                    <EmailDiv
+                      from={"A++"}
+                      subject={"Lorem"}
+                      isActive={1 === activeEmail}
+                      onClick={() => updateActiveEmail(1)}
+                    />
+                  </div>
+                )}
+                {activeElement === 2 && (
+                  <div>
+                    <EmailDiv
+                      from={"A++"}
+                      subject={"Ipsum"}
+                      isActive={1 === activeEmail}
+                      onClick={() => updateActiveEmail(1)}
+                    />
+                    <EmailDiv
+                      from={"A++"}
+                      subject={"Dolor"}
+                      isActive={2 === activeEmail}
+                      onClick={() => updateActiveEmail(2)}
+                    />
+                  </div>
+                )}
+                {activeElement === 3 && (
+                  <div>
+                    <EmailDiv
+                      from={"A++"}
+                      subject={"Amet"}
+                      isActive={1 === activeEmail}
+                      onClick={() => updateActiveEmail(1)}
+                    />
+                    <EmailDiv
+                      from={"A++"}
+                      subject={"Consectetur"}
+                      isActive={2 === activeEmail}
+                      onClick={() => updateActiveEmail(2)}
+                    />
+                    <EmailDiv
+                      from={"A++"}
+                      subject={"Adipisicing"}
+                      isActive={3 === activeEmail}
+                      onClick={() => updateActiveEmail(3)}
+                    />
+                  </div>
+                )}
               </div>
             </div>
           </div>
           <div className="px-1 mx-1 mailBoxShadow">
-            <p className="text-sm">5 Items, 0 Unread</p>
+            <p className="text-sm">0 Items, 0 Unread</p>
           </div>
         </div>
       </div>
