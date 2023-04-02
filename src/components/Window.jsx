@@ -16,7 +16,7 @@ const Window = ({ visible, onClose }) => {
         className={`${
           // visible ? "fixed inset-0 flex justify-center items-center" : "hidden"
           visible
-            ? "absolute left-[6%] lg:left-[24%] top-[6%] lg:top-[21%] z-10"
+            ? "absolute left-[4%] lg:left-[24%] top-[6%] lg:top-[21%] z-10"
             : "hidden"
         }`}
       >
