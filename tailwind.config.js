@@ -8,6 +8,7 @@ module.exports = {
       },
       fontFamily: {
         W95FA: ["W95FA", "sans-serif"],
+        times: ["times", "sans-serif"],
       },
       backgroundImage: {
         divider: "url('/src/assets/Divider.png')",

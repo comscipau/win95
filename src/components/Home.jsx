@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import Clock from "react-live-clock";
 
 import WIN1 from "../assets/computer.png";
@@ -19,7 +19,11 @@ import Inbox from "./Inbox";
 import Notepad from "./Notepad";
 
 const Home = () => {
-  const [showWindow, setShowWindow] = useState(false);
+  const [welcomeDiv, setWelcomeDiv] = useState(
+    localStorage.getItem("welcome") ? localStorage.getItem("welcome") : true
+  );
+
+  const [showWindow, setShowWindow] = useState(true);
   const closeWindow = () => {
     setShowWindow(false);
   };
@@ -58,7 +62,7 @@ const Home = () => {
   const [showMenu, setShowMenu] = useState(false);
   const closeMenu = (e) => {
     setShowMenu(false);
-    console.log(e);
+    // console.log(e);
     if (e === "About Us") {
       setShowMenuWindow(true);
     }
@@ -111,6 +115,16 @@ const Home = () => {
       }
     }, 500);
   }
+  useEffect(() => {
+    // console.log(localStorage.welcome);
+    if (localStorage.welcome) {
+      // console.log("a");
+      setShowWindow(false);
+    } else {
+      setShowWindow(true);
+      // console.log("b");
+    }
+  }, []);
 
   return (
     <div className="bg-[#008080] h-screen overflow-hidden m-0 text-white font-W95FA font-thin pt-4 relative">

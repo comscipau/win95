@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import Home from "./components/Home";
 import { motion } from "framer-motion";
+import StartUp from "../src/assets/Startup.mp3";
 
 function App() {
   const [showLoading, setShowLoading] = useState(true);
@@ -14,12 +15,15 @@ function App() {
   };
 
   useEffect(() => {
+    const Sound = new Audio(StartUp);
+    Sound.load();
     const timer = setTimeout(() => {
       closeLoading();
     }, 5000);
 
     const timer2 = setTimeout(() => {
       openHome();
+      Sound.play();
     }, 3500);
 
     return () => {
@@ -53,7 +57,11 @@ function App() {
           className="fixed inset-0 lg:bg-loadingScreen bg-loadingScreenSM bg-stretch z-[99]"
         />
       )}
-      {showHome && <Home />}
+      {showHome && (
+        <div>
+          <Home />
+        </div>
+      )}
     </div>
   );
 }

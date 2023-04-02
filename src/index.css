@@ -7,6 +7,11 @@
   src: url("./fonts/W95FA.otf");
 }
 
+@font-face {
+  font-family: "times";
+  src: url("./fonts/TIMES.TTF");
+}
+
 .winBoxShadow {
   background: #c0c0c0;
   box-shadow: inset -1px -1px 0px #000000, inset 1px 1px 0px #ffffff,
@@ -25,6 +30,12 @@
 }
 
 .btnBoxShadow {
+  background: #c0c0c0;
+  box-shadow: inset -1px -1px 0px #000000, inset 1px 1px 0px #ffffff,
+    inset -2px -2px 0px #818181;
+}
+
+.disabledBtn {
   background: #c0c0c0;
   box-shadow: inset -1px -1px 0px #000000, inset 1px 1px 0px #ffffff,
     inset -2px -2px 0px #818181;
@@ -72,3 +83,19 @@
   color: #808080;
   text-shadow: 0.87px 0.88px 0px #ffffff;
 }
+
+.welcomeDiv {
+  background: #ffffff;
+  box-shadow: inset -1px -1px 0px #ffffff, inset 1px 1px 0px #808080,
+    inset -2px -2px 0px #c1c1c1, inset 2px 2px 0px #000000;
+}
+
+.checkBoxShadow {
+  background: #ffffff;
+  box-shadow: inset -1px -1px 0px #ffffff, inset 1px 1px 0px #808080,
+    inset -2px -2px 0px #c1c1c1, inset 2px 2px 0px #000000;
+}
+
+/* input[type="checkbox"]:checked {
+  background: #ffffff;
+} */

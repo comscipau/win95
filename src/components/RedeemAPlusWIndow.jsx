@@ -42,29 +42,28 @@ const RedeemAPlusWIndow = ({ visible, onClose }) => {
             <div className="bg-divider w-[2px] h-[65px] absolute left-1/2 top-[52px]" />
           </div>
           <div className="px-[28px]">
-            <form action="">
-              <label htmlFor="amount">Redeem Amount:</label>
-              <input
-                type="text"
-                name="amount"
-                className="w-full mt-1 mb-3 outline-none redeemInput"
-              />
-              <div className="flex items-center justify-between mb-6">
-                <div className="flex">
-                  <img
-                    src={NET_LOGO}
-                    alt="NET_LOGO"
-                    className="h-[24px] w-[22px] mr-1"
-                  />
-                  <p>Network in use</p>
-                </div>
-                <input
-                  type="submit"
-                  value="Redeem A++"
-                  className="btnInputBoxShadow py-[6px] px-[8.5px]"
+            <label htmlFor="amount">Redeem Amount:</label>
+            <input
+              type="text"
+              name="amount"
+              className="w-full mt-1 mb-3 outline-none redeemInput"
+            />
+            <div className="flex items-center justify-between mb-6">
+              <div className="flex">
+                <img
+                  src={NET_LOGO}
+                  alt="NET_LOGO"
+                  className="h-[24px] w-[22px] mr-1"
                 />
+                <p>Network in use</p>
               </div>
-            </form>
+              <button
+                type="submit"
+                className="btnInputBoxShadow py-[6px] px-[8.5px]"
+              >
+                Redeem A++
+              </button>
+            </div>
           </div>
         </div>
       </div>
